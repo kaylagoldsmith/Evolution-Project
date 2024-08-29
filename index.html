@@ -45,8 +45,18 @@
                               <p>Time Period: 650 M.Y.A to 541 M.Y.A</p>
                               <button type="button" class="btn btn-learn-more" onclick="toggleContent(this)">Learn More</button>
                               </div>
-                            <div class="learn-more-content">
+                              <div class="learn-more-content">
                                 <p>Additional information about the Late Proterozoic Eon.</p>
+                                <ul>
+                                    <li><b>Snowball Earth Glaciations</b>: It was during this time, that Earth experienced its most severe ice ages.
+                                         These periods, often referred to as "Snowball Earth", saw the planet covered in ice from pole to pole, dramtically
+                                        affecting Earth's climate and life.<br> </li>
+                                    <li><b>Rise of Multicellular Life</b>: During this time, the Earth saw its emergence and diversification of mulicellular organisms.
+                                    The first group of large complex life forms to arrive were known as Ediacaran biota, which were percursors to many of the 
+                                    life forms that would later dominate the Cambrian Explosion.<br></li>
+                                    <li><b>Formation of Supercontinents</b>: This was a time of significant tectonic activity, thus leading to the assembly of 
+                                    supercontinent Rodinia.<br> </li>
+                                </ul>
                                 <button type="button" class="btn btn-back" onclick="hideContent(this)">Back to Timeline</button>
                             </div>
                           </div>
@@ -63,7 +73,19 @@
                             <div class="experience-slide-text">
                               <h3>Paleozoic Era</h3>
                               <p>Time Period: 541 M.Y.A to 252 M.Y.A</p>
-                              <button>Learn More</button>
+                              <button type="button" class="btn btn-learn-more" onclick="toggleContent(this)">Learn More</button>
+                              </div>
+                              <div class="learn-more-content">
+                                <p>Additional information about the Paleozoic Eon.</p>
+                                <ul>
+                                    <li><b>Cambrian Explosion</b>: The rapid expansion of life forms known as the Cambrian Explosion saw the emergence of several major animal groupings
+                                         as well as intricate ecosystems.<br> </li>
+                                    <li><b>Formation and Breakup of Pangaea</b>:  By the conclusion of the eon, the majority of the Earth's landmasses were united under the supercontinent
+                                         Pangaea, which had formed.<br></li>
+                                    <li><b>End-Permian Extinction</b>:the greatest mass extinction event in Earth history, which resulted in the extinction of around 70% of terrestrial species
+                                         and 90% of marine species.<br> </li>
+                                </ul>
+                                <button type="button" class="btn btn-back" onclick="hideContent(this)">Back to Timeline</button>
                             </div>
                           </div>
                         </div>
@@ -79,7 +101,20 @@
                             <div class="experience-slide-text">
                               <h3>Mesozoic Era</h3>
                               <p>Time Period: 252 M.Y.A to 66 M.Y.A</p>
-                              <button>Learn More</button>
+                              <button type="button" class="btn btn-learn-more" onclick="toggleContent(this)">Learn More</button>
+                              </div>
+                              <div class="learn-more-content">
+                                <p>Additional information about the Mesozoic Eon.</p>
+                                <ul>
+                                    <li><b>Rise of Dinosaurs</b>: The Mesozoic, which began in the Triassic and lasted through the Jurassic and Cretaceous eras, is sometimes
+                                         referred to as the "Age of Dinosaurs" because of the dinosaurs' predominance in terrestrial ecosystems.<br> </li>
+                                    <li><b>Breakup of Pangaea</b>: Pangaea's ongoing breakup into the continents that we know today resulted in the development of the Atlantic
+                                         Ocean, which in turn affected sea levels and the world's climate.<br></li>
+                                    <li><b>End-Cretaceous Extinction</b>: This catastrophe, which occurred around 66 million years ago, led to the mass extinction of many other
+                                         species, including dinosaurs, with the exception of avian ones. It also cleared the way for mammals to take over as the dominating terrestrial
+                                          creatures.<br> </li>
+                                </ul>
+                                <button type="button" class="btn btn-back" onclick="hideContent(this)">Back to Timeline</button>
                             </div>
                           </div>
                         </div>
@@ -95,7 +130,19 @@
                             <div class="experience-slide-text">
                               <h3>Cenozoic Era</h3>
                               <p>Time Period: 66 M.Y.A to Present</p>
-                              <button>Learn More</button>
+                              <button type="button" class="btn btn-learn-more" onclick="toggleContent(this)">Learn More</button>
+                            </div>
+                            <div class="learn-more-content">
+                              <p>Additional information about the Cenozoic Eon.</p>
+                              <ul>
+                                  <li><b>Rise of Mammals and Birds</b>: The evolution of mammals and birds into the major terrestrial creatures following the demise
+                                     of the dinosaurs occurred 66 million years ago.<br> </li>
+                                  <li><b>Formation of Modern Continents and Oceans</b>: During the Cenozoic Era, continents continued to move into their present locations,
+                                     which had an impact on ocean currents and climatic patterns.<br></li>
+                                  <li><b>Ice Ages and Human Evolution</b>: There have been several ice ages, the most recent of which being the Pleistocene. The evolution
+                                     of humanity and the creation of contemporary society also occurred during this time.<br> </li>
+                              </ul>
+                              <button type="button" class="btn btn-back" onclick="hideContent(this)">Back to Timeline</button>
                             </div>
                           </div>
                         </div>
@@ -115,16 +162,41 @@
             const experienceSlide = button.closest('.experience-slide-one');
             const experienceText = experienceSlide.querySelector('.experience-slide-text');
             const learnMoreContent = experienceSlide.querySelector('.learn-more-content');
+            
             experienceText.classList.add('hide');
             learnMoreContent.classList.add('show');
-        }
 
+            disableCarouselControls();
+        }
+    
         function hideContent(button) {
             const learnMoreContent = button.closest('.learn-more-content');
             const experienceSlide = learnMoreContent.closest('.experience-slide-one');
             const experienceText = experienceSlide.querySelector('.experience-slide-text');
+            
             experienceText.classList.remove('hide');
             learnMoreContent.classList.remove('show');
+    
+            enableCarouselControls();
+        }
+    
+        function disableCarouselControls() {
+            document.querySelector('.carousel-control-prev').style.display = 'none';
+            document.querySelector('.carousel-control-next').style.display = 'none';
+    
+            document.querySelectorAll('.carousel-indicators button').forEach(indicator => {
+                indicator.style.pointerEvents = 'none';
+            });
+        }
+    
+        function enableCarouselControls() {
+            document.querySelector('.carousel-control-prev').style.display = 'block';
+            document.querySelector('.carousel-control-next').style.display = 'block';
+    
+            // Enable the indicators
+            document.querySelectorAll('.carousel-indicators button').forEach(indicator => {
+                indicator.style.pointerEvents = 'auto';
+            });
         }
     </script>
 </html>

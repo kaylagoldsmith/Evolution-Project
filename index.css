@@ -147,13 +147,48 @@ header h1{
     color: white;
 }
 .learn-more-content {
-    display:none;
+    opacity: 0;
+    display: none; 
+    transition: opacity 0.5s ease;
     margin-top: 20px;
 }
-.show {
-    display:block
-}
-.hide {
-    display: none;
+
+.learn-more-content.show {
+    opacity: 1;
+    display: block; 
 }
 
+.experience-slide-text {
+    transition: opacity 1s ease;
+}
+
+.experience-slide-text.hide {
+    display: none;
+    opacity: 0;
+} 
+
+.learn-more-content p{
+    text-align: center;
+    color:#1A4D2E
+}
+.learn-more-content li{
+    font-size: 14px;
+    line-height: 2;
+    font-weight: lighter;
+}
+.learn-more-content b{
+    color:rgba(79, 111, 82);
+}
+@media (max-width: 768px) {
+    .timeline {
+        padding: 70px 10px;
+    }
+
+    .experience-slide-text h3 {
+        font-size: 22px;
+    }
+
+    .experience-slide-text p {
+        font-size: 14px;
+    }
+}
