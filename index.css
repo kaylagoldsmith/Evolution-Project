@@ -7,7 +7,6 @@ header{
     background-color: #1A4D2E;
     padding: 20px 15px;
     overflow: hidden;
-    margin-bottom: 20px;;
 }
 header h1{
     color:#F5EFE6;
@@ -103,11 +102,58 @@ header h1{
     margin-bottom: 30px;
     font-size:27px;
     color:#1A4D2E;
+    text-align: center;
 }
+.experience-slide-text p{
+    text-align: center;
+}
+.experience-slide-text button, .learn-more-content button{
+    color:#F5EFE6;
+    text-align: center;
+    background-color: rgba(79, 111, 82);
+    margin: 0 auto;
+    display:block;
+}
+
 .carousel-control-next, .carousel-control-prev{
     width:2%;
+    opacity: .8;
 }
 .carousel-control-next-icon i, .carousel-control-prev-icon i{
     font-size:30px;
     color:black;
 }
+.btn-learn-more {
+    position: relative; 
+    z-index: 1000; 
+}
+.btn-back {
+    position: relative; 
+    z-index: 1000; 
+    margin: 0 auto;
+}
+.experience-slide-text button:hover , .learn-more-content button:hover{
+    background-color: #1A4D2E;
+    color:#E8DFCA;
+}
+.btn-learn-more {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    color: white;
+}
+.btn-learn-more:hover {
+    background-color: #388E3C;
+    border-color: #388E3C;
+    color: white;
+}
+.learn-more-content {
+    display:none;
+    margin-top: 20px;
+}
+.show {
+    display:block
+}
+.hide {
+    display: none;
+}
+

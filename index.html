@@ -43,6 +43,11 @@
                             <div class="experience-slide-text">
                               <h3>Late Proterozoic Eon</h3>
                               <p>Time Period: 650 M.Y.A to 541 M.Y.A</p>
+                              <button type="button" class="btn btn-learn-more" onclick="toggleContent(this)">Learn More</button>
+                              </div>
+                            <div class="learn-more-content">
+                                <p>Additional information about the Late Proterozoic Eon.</p>
+                                <button type="button" class="btn btn-back" onclick="hideContent(this)">Back to Timeline</button>
                             </div>
                           </div>
                         </div>
@@ -58,6 +63,7 @@
                             <div class="experience-slide-text">
                               <h3>Paleozoic Era</h3>
                               <p>Time Period: 541 M.Y.A to 252 M.Y.A</p>
+                              <button>Learn More</button>
                             </div>
                           </div>
                         </div>
@@ -73,6 +79,7 @@
                             <div class="experience-slide-text">
                               <h3>Mesozoic Era</h3>
                               <p>Time Period: 252 M.Y.A to 66 M.Y.A</p>
+                              <button>Learn More</button>
                             </div>
                           </div>
                         </div>
@@ -88,19 +95,36 @@
                             <div class="experience-slide-text">
                               <h3>Cenozoic Era</h3>
                               <p>Time Period: 66 M.Y.A to Present</p>
+                              <button>Learn More</button>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fa-solid fa-chevron-left"></i></span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="carousel-control-next-icon" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
                     </button>
                   </div>
-            </div>
         </section>
     </body>
+    <script>
+        function toggleContent(button) {
+            const experienceSlide = button.closest('.experience-slide-one');
+            const experienceText = experienceSlide.querySelector('.experience-slide-text');
+            const learnMoreContent = experienceSlide.querySelector('.learn-more-content');
+            experienceText.classList.add('hide');
+            learnMoreContent.classList.add('show');
+        }
+
+        function hideContent(button) {
+            const learnMoreContent = button.closest('.learn-more-content');
+            const experienceSlide = learnMoreContent.closest('.experience-slide-one');
+            const experienceText = experienceSlide.querySelector('.experience-slide-text');
+            experienceText.classList.remove('hide');
+            learnMoreContent.classList.remove('show');
+        }
+    </script>
 </html>
